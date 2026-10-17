@@ -1,0 +1,3 @@
+# Keys en lowerCamelCase strict, identiques à leur Accessor
+
+Une Key doit respecter `^[a-z][a-zA-Z0-9]*(\.[a-z][a-zA-Z0-9]*)*$` et ne peut pas être un mot-clé Kotlin. Chaque segment devient tel quel le nom d'un Group ou d'un Accessor, et le plugin n'applique aucune conversion. Le snake_case, plus répandu dans les fichiers de traduction, aurait obligé à convertir `welcome_text` en `welcomeText` et rouvert la porte aux collisions dès que deux styles se mélangent. Une correspondance identique entre Key et Accessor rend toute collision impossible par construction. En contrepartie, changer cette règle plus tard casserait le Translation file de chaque utilisateur.

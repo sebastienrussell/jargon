@@ -1,0 +1,3 @@
+# Génération de code par plugin Gradle, indépendante de Compose Multiplatform Resources
+
+Compose Multiplatform Resources couvre déjà la localisation KMP, mais éparpille chaque langue dans son propre `strings.xml` et lie la librairie à Compose. Jargon veut au contraire un fichier JSON unique où les langues d'un même texte sont côte à côte, et une librairie utilisable en Kotlin pur (couche domaine, ViewModel, hors Compose). Nous avons choisi un plugin Gradle qui lit ce fichier au build et génère des accesseurs typés : une Key absente ne compile pas. Ce choix a un coût, celui de maintenir un plugin Gradle en plus du runtime, et nous l'avons préféré à un lookup par chaîne à l'exécution, qui aurait été plus simple mais sans aucune sécurité à la compilation.
